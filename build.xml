@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="vaadinCoding" default="init" basedir=".">
+
+  <property name="source.dir" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="reports.test" value="tests"/>
+
+  <target name="init" description="create folders for classes">
+    <mkdir dir="${source.dir}"/>
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${reports.test}"/>
+  </target>
+
+  <target name="build" depends="init" description="compile the classes">
+    <javac srcdir="${source.dir}" destdir="${build.dir}"
+	   nowarn="true" verbose="false">
+    </javac>
+    <echo>Compilation complete</echo>
+  </target>
+
+  <target name="junit" depends="build,init">
+    <junit printsummary="yes" haltonfailure="no" showoutput="true">
+
+      <classpath>
+	<pathelement location="${build.dir}"/>
+      </classpath>
+
+      <batchtest fork="yes" todir="${reports.test}">
+	<fileset dir="${source.dir}">
+	  <include name="**/*Test.java"/>
+	</fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <target name="clean" description="delete the compile classes">
+    <delete dir="${build.dir}"/>
+  </target>
+
+</project>
+
