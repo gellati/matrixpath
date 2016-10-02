@@ -1,6 +1,6 @@
 language: java
 sudo: false
-ant test
+# ant test
 #jdk:
 #  - openjdk8
 #  - openjdk7
