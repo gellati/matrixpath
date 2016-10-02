@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gellati/matrixpath.svg?branch=master)](https://travis-ci.org/gellati/matrixpath)
+
 ### Find most lucrative path in matrix
 
 The user can create a rectangular N x N  matrix, with N being up to 5. Each cell in the matrix contains a number which shows how much can be gained from visiting this cell. Traversing this matrix from the upper left corner to the lower right corner, in which one can only take one step right or one step down at each turn, the program will show which path gives the greatest sum total in the end.
