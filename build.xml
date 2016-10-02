@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="vaadinCoding" default="init" basedir=".">
 
-  <property name="source.dir" value="src"/>
-  <property name="build.dir" value="build"/>
+<!-- directories chosen to conform to maven standard directory layout -->
+  <property name="source.dir" value="src/main/java"/>
+  <property name="build.dir" value="target/classes"/>
+  <property name="test.dir" value="src/test"/>
   <property name="reports.test" value="tests"/>
 
   <target name="init" description="create folders for classes">
@@ -11,6 +13,7 @@
     <mkdir dir="${reports.test}"/>
   </target>
 
+<!-- run with "ant build" -->
   <target name="build" depends="init" description="compile the classes">
     <javac srcdir="${source.dir}" destdir="${build.dir}"
 	   nowarn="true" verbose="false">
@@ -26,7 +29,7 @@
       </classpath>
 
       <batchtest fork="yes" todir="${reports.test}">
-	<fileset dir="${source.dir}">
+	<fileset dir="${test.dir}">
 	  <include name="**/*Test.java"/>
 	</fileset>
       </batchtest>

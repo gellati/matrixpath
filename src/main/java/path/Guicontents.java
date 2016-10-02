@@ -1,3 +1,5 @@
+package path;
+
 import javax.swing.JSpinner;
 import javax.swing.JPanel;
 import javax.swing.SpinnerNumberModel;
